@@ -21,10 +21,10 @@ end)
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -34,7 +34,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
@@ -48,3 +48,25 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-- Function to toggle terminal split
+--[[local function toggle_terminal()
+    local terminals = vim.api.nvim_list_bufs()
+    local is_terminal_open = false
+
+    for _, buf in ipairs(terminals) do
+        if vim.bo[buf].buftype == "terminal" then
+            is_terminal_open = true
+            vim.api.nvim_buf_delete(buf, { force = true })
+            break
+        end
+    end
+
+    if not is_terminal_open then
+        vim.cmd('terminal')
+    end
+end]]
+
+-- Map 'j' to toggle terminal split
+vim.keymap.set('n', '<C-j>', function()
+        vim.cmd('terminal zsh')
+end)

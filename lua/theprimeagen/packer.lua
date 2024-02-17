@@ -16,7 +16,6 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.5',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    use 'wbthomason/packer.nvim'
     use 'dracula/vim'
     use({
         'rose-pine/neovim',
