@@ -68,5 +68,11 @@ end]]
 
 -- Map 'j' to toggle terminal split
 vim.keymap.set('n', '<C-j>', function()
-        vim.cmd('terminal zsh')
+    vim.cmd('sp')
+
+    vim.cmd('wincmd j')
+
+    vim.cmd('terminal zsh')
+
+    vim.cmd('startinsert')
 end)
