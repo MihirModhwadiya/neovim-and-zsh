@@ -27,6 +27,7 @@ return require('packer').startup(function(use)
             vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
         end
 
+
     })
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
