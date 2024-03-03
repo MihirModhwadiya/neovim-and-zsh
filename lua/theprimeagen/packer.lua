@@ -5,7 +5,7 @@
 
 
 vim.cmd.packadd('packer.nvim')
-vim.cmd.colorscheme('dracula')
+vim.cmd('colorscheme dracula')
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
